@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Mission (Im)Possible: Discovering Autopilot Logic Flaws in Open-Source Drone Frameworks with LLM Agents">
+  <!-- TODO: Write a compelling 150-160 character description of your research -->
+<!--   <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS"> -->
+  <!-- TODO: Add 5-10 relevant keywords for your research area -->
+<!--   <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI"> -->
+  <!-- TODO: List all authors -->
+<!--   <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME"> -->
+<!--   <meta name="robots" content="index, follow"> -->
+<!--   <meta name="language" content="English"> -->
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- TODO: Replace with your institution or lab name -->
+<!--   <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME"> -->
+  <!-- TODO: Same as paper title above -->
+  <meta property="og:title" content="Mission (Im)Possible: Discovering Autopilot Logic Flaws in Open-Source Drone Frameworks with LLM Agents">
+  <!-- TODO: Same as description above -->
+<!--   <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS"> -->
+  <!-- TODO: Replace with your actual website URL -->
+<!--   <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"> -->
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+<!--   <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png"> -->
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+<!--   <meta property="og:image:alt" content="PAPER_TITLE - Research Preview"> -->
+<!--   <meta property="article:published_time" content="2024-01-01T00:00:00.000Z"> -->
+  <!-- <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="KEYWORD1">
+  <meta property="article:tag" content="KEYWORD2"> -->
+
+  <!-- Twitter -->
+<!--   <meta name="twitter:card" content="summary_large_image"> -->
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+<!--   <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE"> -->
+  <!-- TODO: Replace with first author's Twitter handle -->
+<!--   <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE"> -->
+  <!-- TODO: Same as paper title above -->
+<!--   <meta name="twitter:title" content="PAPER_TITLE"> -->
+  <!-- TODO: Same as description above -->
+<!--   <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS"> -->
+  <!-- TODO: Same as social preview image above -->
+  <!-- <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview"> -->
+
+  <!-- Academic/Research Specific -->
+  <!-- <meta name="citation_title" content="PAPER_TITLE">
+  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
+  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
+  <meta name="citation_publication_date" content="2024">
+  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf"> -->
+  
+  <!-- Additional SEO -->
+  <!-- <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"> -->
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>Mission (Im)Possible: Discovering Autopilot Logic Flaws in Open-Source Drone Frameworks with LLM Agents</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "PAPER_TITLE",
+    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "FIRST_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "SECOND_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      }
+    ],
+    "datePublished": "2024-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CONFERENCE_OR_JOURNAL_NAME"
+    },
+    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
+    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
+    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
+    "abstract": "FULL_ABSTRACT_TEXT_HERE",
+    "citation": "BIBTEX_CITATION_HERE",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "RESEARCH_AREA_1"
+      },
+      {
+        "@type": "Thing", 
+        "name": "RESEARCH_AREA_2"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "INSTITUTION_OR_LAB_NAME",
+    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
+    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/YOUR_TWITTER_HANDLE",
+      "https://github.com/YOUR_GITHUB_USERNAME"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- TODO: Replace with your paper title -->
+            <h1 class="title is-1 publication-title">Mission (Im)Possible: Discovering Autopilot Logic Flaws in Open-Source Drone Frameworks with LLM Agents</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- TODO: Replace with your paper authors and their personal links -->
+              <!-- <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                  </span>
+                  </div> -->
+
+                  <div class="is-size-5 publication-authors">
+                    <!-- TODO: Replace with your institution and conference/journal info -->
+<!--                     <span class="author-block">Institution Name<br>Conference name and year</span> -->
+                    <!-- TODO: Remove this line if no equal contribution -->
+<!--                     <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- TODO: Update with your arXiv paper ID -->
+                      <!-- <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span> -->
+
+                    <!-- TODO: Add your supplementary material PDF or remove this section -->
+                    <!-- <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- TODO: Replace with your GitHub repository URL -->
+                  <!-- <span class="link-block">
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span> -->
+
+                <!-- TODO: Update with your arXiv paper ID -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <p>
+		  Drone systems are increasingly deployed across a wide range of domains, including environmental monitoring, infrastructure inspection, agriculture, etc., due to their automation capabilities. However, these systems can harbor subtle logic vulnerabilities that may lead to significant security risks. With recent advances in large language models (LLMs), we observe that, when equipped with essential domain knowledge, LLMs demonstrate a strong capability to understand the relationships between variables and functions, making them well-suited for reasoning about complex mission control logic in drones.</p>
+		  <p>
+		  We introduce <b>I</b>mpossible <b>M</b>ission <b>F</b>inder} (IMF), a fully automated framework combining both static code analysis and dynamic execution with LLM agents, to find mission-planning logic flaws in open-source drone frameworks.
+IMF initiates analysis by performing code slicing on navigation-related modules of open-source drone frameworks, to extract function-level slicing related to mission-critical operations. An LLM agent then analyzes these slices to reason about affected variables, control conditions, and inter-module dependencies and generates logically consistent test scenarios that are further translated into executable test cases. Finally, such test cases will be executed and an LLM-driven log analyzer will dynamically validate whether vulnerabilities occur. We evaluated IMF on PX4, which is a major open-source drone framework, and IMF successfully identified 12 previously unknown logic vulnerabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Vulnerability Demonstrations -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">PoV Videos</h2>
+        <div class="content has-text-centered">
+          <p>Below are parts of the proof-of-concept videos demonstrating the logic vulnerabilities discovered by IMF. Due to the anoymous requirement, we cannot provide the github link to the issue and fix.</p>
+        </div>
+
+        <!-- Videos Grid -->
+        <div class="columns is-multiline">
+          <!-- Drone Crash -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Drone Crash Vulnerability</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/drone-crash.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fail to Pause -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Drone Failed to Pause when clicking the pause button</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/fail-to-pause.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fly in No-Fly Zone -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">No-Fly Zone including the current drone location won't be enforced</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/fly-in-noflyzone.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Home Position Change -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Changing home position making the drones unable to reach the waypoint</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/home-change.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- No-Fly Mission Conflict -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Mission includes waypoint in No-Fly Zone doesn't raise any warnings</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/nofly-mission-conflict.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- No-Fly Precheck Fail -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">No-Fly Zone Precheck Failure</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/nofly-precheck-fail.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Oscillation -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">No-Fly Zones near each other can make drone oscillate</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/oscillate.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Return No-Fly -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Drone can return to home position inside No-Fly Zones</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/return-nofly.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End vulnerability demonstrations -->
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+  </html>
