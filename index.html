@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="title" content="Mission (Im)Possible: Towards Autonomous Discovery of Autopilot Logic Flaws in Open-Source Drone Frameworks">
+  <meta name="description" content="Project page for Mission (Im)Possible, including the implementation artifact, logic flaw list, and proof-of-concept videos.">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Mission (Im)Possible: Towards Autonomous Discovery of Autopilot Logic Flaws in Open-Source Drone Frameworks">
+  <meta property="og:description" content="Project page for Mission (Im)Possible, including the implementation artifact, logic flaw list, and proof-of-concept videos.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  
+  <title>Mission (Im)Possible: Towards Autonomous Discovery of Autopilot Logic Flaws in Open-Source Drone Frameworks</title>
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css?v=20260704-3">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  </noscript>
+
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js?v=20260704-3"></script>
+  
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Mission (Im)Possible: Towards Autonomous Discovery of Autopilot Logic Flaws in Open-Source Drone Frameworks</h1>
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://anonymous.4open.science/r/drone-audit-agent-82C0" target="_blank" rel="noopener noreferrer"
+                  class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-code"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#logic-flaws"
+                  class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-table"></i>
+                    </span>
+                    <span>Full List of Logic Flaws</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#pov-videos"
+                  class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-video"></i>
+                    </span>
+                    <span>Selective PoV Videos</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Autonomous drones are increasingly deployed in safety-critical tasks, yet their autopilot software can still contain subtle logic flaws that lead to unsafe behaviors. These flaws are difficult to discover with existing techniques because they often depend on semantic relationships across modules, commands, and runtime state, and may not manifest as crashes or other easily detectable failures.
+          </p>
+          <p>
+            With recent advances in large language models (LLMs), we observe that, when equipped with essential domain knowledge and carefully crafted context, LLMs demonstrate strong capabilities in understanding the high-level semantics of autopilot systems, making them suitable for logic flaw discovery. However, LLMs are limited by their context and can be biased toward vulnerabilities that frequently occur in training data; logic flaws also may not lead to crashes or other obvious behaviors, which means they require higher-level semantic bug oracles.
+          </p>
+          <p>
+            To bridge the gap, we present <b>I</b>mpossible <b>M</b>ission <b>F</b>inder (IMF), a multi-agent system combining static analysis, dynamic execution, and log analysis that supports fully automated identification, testing, and validation of logic flaws in autonomous vehicles. IMF first uses an auditor agent to propose logic-flaw hypotheses based on carefully crafted program slices, then launches tester agents to write and execute test cases for each candidate, and finally spawns a log-analyzer agent to validate the execution log against the flaw hypothesis. This enables IMF to dynamically validate bug oracles case by case, making it suitable for discovering logic flaws that do not have a unified pattern. We evaluated IMF on two widely used open-source autopilot systems, PX4 and ArduPilot, leading to 105 previously unknown logic flaws after manual validation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Full list of logic flaws -->
+<section class="section hero is-light" id="logic-flaws">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Full List of Logic Flaws</h2>
+        <div class="content has-text-centered cases-intro">
+          <p>Browse the categorized logic flaws identified across ArduPilot and PX4.</p>
+        </div>
+
+        <div class="case-stats" aria-label="Logic flaw summary">
+          <div class="case-stat">
+            <span class="case-stat-value" id="total-case-count">105</span>
+            <span class="case-stat-label">Total</span>
+          </div>
+          <div class="case-stat">
+            <span class="case-stat-value" id="ardupilot-case-count">63</span>
+            <span class="case-stat-label">ArduPilot</span>
+          </div>
+          <div class="case-stat">
+            <span class="case-stat-value" id="px4-case-count">42</span>
+            <span class="case-stat-label">PX4</span>
+          </div>
+        </div>
+
+        <div class="case-controls" aria-label="Logic flaw filters">
+          <div class="field case-search-field">
+            <label class="label" for="case-search">Search</label>
+            <div class="control has-icons-left">
+              <input class="input" id="case-search" type="search" placeholder="Search firmware, command, title, or summary">
+              <span class="icon is-small is-left">
+                <i class="fas fa-search"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="firmware-filter">Firmware</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select id="firmware-filter">
+                  <option value="">All firmware</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="category-filter">Category</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select id="category-filter">
+                  <option value="">All categories</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field case-clear-field">
+            <label class="label" aria-hidden="true">&nbsp;</label>
+            <button class="button is-light" id="clear-case-filters" type="button">
+              <span class="icon"><i class="fas fa-times"></i></span>
+              <span>Clear</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="case-table-status" id="case-table-status">Loading logic flaws...</div>
+        <div class="case-explorer" aria-live="polite">
+          <div class="case-list-panel" aria-label="Filtered logic flaws">
+            <div class="case-list" id="cases-list">
+              <p class="case-empty-row">Loading logic flaws...</p>
+            </div>
+          </div>
+          <article class="case-detail-panel" id="case-detail-panel" aria-label="Selected logic flaw">
+            <div class="case-detail-placeholder">
+              <span class="artifact-icon"><i class="fas fa-search"></i></span>
+              <p>Select an item from the list to inspect its command, category, and observation summary.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End full list of logic flaws -->
+
+<!-- Selective PoV videos -->
+<section class="section" id="pov-videos">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Selective PoV Videos</h2>
+        <div class="content has-text-centered">
+          <p>Below are selected proof-of-concept videos demonstrating logic vulnerabilities discovered by IMF.</p>
+        </div>
+
+        <!-- Videos Grid -->
+        <div class="columns is-multiline">
+          <!-- Drone Crash -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Drone Crash Logic Flaw</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/drone-crash.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fail to Pause -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Drone Failed to Pause when clicking the pause button</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/fail-to-pause.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fly in No-Fly Zone -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">No-Fly Zone including the current drone location won't be enforced</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/fly-in-noflyzone.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Home Position Change -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Changing home position making the drones unable to reach the waypoint</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/home-change.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- No-Fly Mission Conflict -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Mission includes waypoint in No-Fly Zone doesn't raise any warnings</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/nofly-mission-conflict.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- No-Fly Precheck Fail -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">No-Fly Zone Precheck Failure</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/nofly-precheck-fail.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Oscillation -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">No-Fly Zones near each other can make drone oscillate</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/oscillate.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Return No-Fly -->
+          <div class="column is-half">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Drone can return to home position inside No-Fly Zones</h3>
+                <video controls width="100%" preload="metadata">
+                  <source src="static/videos/return-nofly.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End selective PoV videos -->
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the&nbsp;<a href="https://nerfies.github.io" target="_blank">Nerfies</a>&nbsp;project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+  </html>
