@@ -450,6 +450,8 @@ function setText(id, value) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    initVulnerabilityCases();
+
     var options = {
         slidesToScroll: 1,
         slidesToShow: 1,
@@ -459,14 +461,17 @@ document.addEventListener('DOMContentLoaded', function() {
         autoplaySpeed: 5000,
     };
 
-    if (window.bulmaCarousel) {
-        bulmaCarousel.attach('.carousel', options);
-    }
+    try {
+        if (window.bulmaCarousel) {
+            bulmaCarousel.attach('.carousel', options);
+        }
 
-    if (window.bulmaSlider) {
-        bulmaSlider.attach();
-    }
+        if (window.bulmaSlider) {
+            bulmaSlider.attach();
+        }
 
-    setupVideoCarouselAutoplay();
-    initVulnerabilityCases();
+        setupVideoCarouselAutoplay();
+    } catch (error) {
+        console.warn('Optional media controls could not be initialized.', error);
+    }
 });
